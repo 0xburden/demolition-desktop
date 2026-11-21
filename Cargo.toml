@@ -1,5 +1,5 @@
 [workspace]
-members = ["apps/desktop", "crates/audio-io"]
+members = ["apps/desktop", "crates/audio-io", "crates/project"]
 resolver = "3"
 
 [workspace.package]

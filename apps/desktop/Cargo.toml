@@ -7,4 +7,7 @@ publish.workspace = true
 
 [dependencies]
 demolition-audio-io = { path = "../../crates/audio-io" }
+demolition-project = { path = "../../crates/project" }
+dirs = "=6.0.0"
 gpui-kit = { version = "=0.10.0", default-features = false, features = ["component"] }
+tempfile = "3"

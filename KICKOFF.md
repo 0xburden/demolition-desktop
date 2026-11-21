@@ -36,6 +36,12 @@ Treat **opening older `.rpp` projects** as the first requirement. Exporting a De
 
 ## First slices and acceptance checks
 
+Choose **New Project**, enter a name, select a parent folder, and choose **Create Project**. Demolition creates a named folder containing `Session.demo` and `media/`, then opens the workspace. **Play Click** previews the metronome without an input or guide. Under **Timing Settings**, set the starting tempo (30–300 quarter-note BPM), time signature, click volume, or downbeat accent. Add a **Timing Change** at any bar after bar 1 with a new tempo, time signature, or both. For example, entering bar `5` and `7/8` with BPM blank changes only the meter from bar 5 onward. Clicks follow the denominator note (six eighth-note clicks in 6/8). **Click while recording** sends the same timing to the selected output, not directly into the recorded WAV. Each take saves a snapshot of its timing map.
+
+To record, select a four-channel input, enable meters, confirm signal on inputs 1–4, choose **Record**, then **Stop & Save**. On Linux, use a direct ALSA `hw:` input. If using a click or a guide, prefer the output of the same interface. The optional guide must be mono/stereo 44.1 or 48 kHz WAV (packed PCM or 32-bit float). Input monitoring is off; use direct monitoring on the interface if needed. Each take stays in the project under `media/take-N/` with its four-channel `take.wav` and an optional `guide.wav`. The saved guide offset is an estimate; reopening projects and surfacing recovered takes in the app are not yet part of this smoke build.
+
+For a headless device check, set `DEMO_TEST_INPUT` to the exact device name and `DEMO_TEST_FOLDER` to an existing output directory. Optionally set `DEMO_TEST_GUIDE` to a test WAV or `DEMO_TEST_CLICK=1` to exercise metronome preview and recording; both need `DEMO_TEST_OUTPUT` set to the exact output device name. With click enabled, `DEMO_TEST_TIMING_CHANGES=1` switches from 120 BPM in 3/4 to 150 BPM in 6/8 at bar 2. Run `cargo test --locked -p demolition record_hardware_take -- --ignored --nocapture`.
+
 | Slice | What counts as done |
 |---|---|
 | **0. Repo and platform bring-up** | Decide repo licensing before publishing; a free product does not imply a particular source license. Add the workspace, CI, and repeatable build/package instructions. Clean installs launch and enumerate audio devices on all three OSes. |

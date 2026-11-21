@@ -1,0 +1,13 @@
+[package]
+name = "demolition-project"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+hound = "=3.5.1"
+rusqlite = { version = "=0.43.0", default-features = false, features = ["bundled"] }
+
+[dev-dependencies]
+tempfile = "3"
