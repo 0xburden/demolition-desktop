@@ -1,0 +1,10 @@
+[package]
+name = "demolition"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+demolition-audio-io = { path = "../../crates/audio-io" }
+gpui-kit = { version = "=0.10.0", default-features = false, features = ["component"] }

@@ -1,0 +1,9 @@
+[package]
+name = "demolition-audio-io"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+cpal = "=0.18.2"
